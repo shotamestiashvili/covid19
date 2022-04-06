@@ -16,7 +16,11 @@ class CountryService
                 'code' => $code,
                 'name' => $name,
             ]);
+
+        DB::commit();
+
         } catch (\Exception $e){
+
             DB::rollback();
             return $e;
         }

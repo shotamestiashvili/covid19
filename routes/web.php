@@ -1,9 +1,6 @@
 <?php
 
-use App\Gateway\Devtest;
-use App\Models\Statistic;
-use Carbon\Carbon;
-use GuzzleHttp\Client;
+
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +24,12 @@ Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, '
 
 Route::get('/country', function () {
 
-    \Illuminate\Support\Facades\Artisan::call('fetch:starter');
+//  \Illuminate\Support\Facades\Artisan::call('fetch:starter');
+//    \Illuminate\Support\Facades\Artisan::call('country:populate');
+
+//     Statistic::get()->each(function ($stat){
+//         $stat->updated_at ='2022-04-05 04:28:25';
+//         $stat->save();
+//    });
 
 });

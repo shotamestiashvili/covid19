@@ -5,6 +5,7 @@ namespace App\Services\Statistic;
 
 use App\Models\Statistic;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 
 class StatisticService
@@ -36,21 +37,44 @@ class StatisticService
 
     public function create($result, $country_id){
 
+        DB::beginTransaction();
+
+        try {
             Statistic::create([
                 'country_id'  => $country_id,
                 'confirmed'   => $result->confirmed,
                 'recovered'   => $result->recovered,
                 'death'      => $result->deaths,
             ]);
+
+            DB::commit();
+
+        } catch (\Exception $e){
+
+            DB::rollback();
+            return $e;
+        }
     }
 
 
+
     public function update($result, $country_id) {
+
+        DB::beginTransaction();
+
+        try {
 
         Statistic::where('country_id', $country_id)->update([
             'confirmed'   => $result->confirmed,
             'recovered'   => $result->recovered,
             'death'       => $result->deaths,
         ]);
+            DB::commit();
+
+        } catch (\Exception $e){
+
+            DB::rollback();
+            return $e;
+        }
     }
 }

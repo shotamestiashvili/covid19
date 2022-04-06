@@ -13,9 +13,9 @@ class FetchStatistic implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $timeout  = 300;
-    public $tries    = 4;
-    public $attempts = 4;
+    public $timeout  = 120;
+    public $tries    = 10;
+    public $attempts = 10;
     /**
      * Create a new job instance.
      *
