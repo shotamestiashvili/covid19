@@ -31,5 +31,4 @@ Route::get('/country', function () {
 //         $stat->updated_at ='2022-04-05 04:28:25';
 //         $stat->save();
 //    });
-
 });
