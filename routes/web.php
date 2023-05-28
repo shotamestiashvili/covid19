@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::post('login', [\App\Http\Controllers\Auth\LoginController::class,  'login']);
 Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, 'register']);
-
+Route::post('logout', [\App\Http\Controllers\Auth\RegisterController::class, 'logout']);
 
 Route::get('/country', function () {
 
